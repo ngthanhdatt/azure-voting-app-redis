@@ -33,6 +33,10 @@ spec:
   - port: 6379
   selector:
     app: azure-vote-back
+
+
+
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -57,7 +61,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        image: ngthanhdat/azure-vote:latest
         ports:
         - containerPort: 80
         resources:
@@ -77,6 +81,6 @@ spec:
   type: ClusterIP
   ports:
   - port: 80
-    targetPort: 80
+    # targetPort: 80
   selector:
     app: azure-vote-front
